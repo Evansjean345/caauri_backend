@@ -1,0 +1,9 @@
+name: fimat-group-api
+type: web
+buildCommand: npm install
+startCommand: npm start
+
+routes:
+  - path: /ping
+    methods:
+      - GET
