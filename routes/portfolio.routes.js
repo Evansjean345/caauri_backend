@@ -4,7 +4,9 @@ const portfolioCtrl = require("../controllers/portfolio.controller");
 const { upload } = require("../middlewares/multer");
 
 router.post(
-  "/portfolio",upload.single("picture"),portfolioCtrl.createPortfolio
+  "/portfolio",
+  upload.array("picture"),
+  portfolioCtrl.createPortfolio
 );
 router.get("/portfolio", portfolioCtrl.getPortfolio);
 router.get("/portfolio/:id", portfolioCtrl.getOnePortfolio);

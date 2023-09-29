@@ -1,20 +1,31 @@
 const Portfolio = require("../models/portfolio.model");
 const cloud = require("../middlewares/cloudinary");
 const ObjectID = require("mongoose").Types.ObjectId;
+const fs = require("fs");
 
 //createHome logic
 exports.createPortfolio = async (req, res) => {
-  let file = null;
-  if (req.file) {
-    const cloudinary = cloud.v2.uploader.upload(req.file.path);
-    file = (await cloudinary).secure_url;
+  let url = [];
+  if (req.method === "POST") {
+    const files = req.files;
+    const uploader = async (path) => {
+      const result = await cloud.v2.uploader.upload(path);
+      return result.secure_url;
+    };
+    for (const file of files) {
+      const { path } = file;
+      const newPath = uploader(path);
+      url.push(newPath);
+    }
   }
-  const portfolio = new Portfolio({
-    ...req.body,
-    picture: file,
-  });
-  portfolio
-    .save()
+  Promise.all(url)
+    .then((urlsPromises) => {
+      const portfolio = new Portfolio({
+        ...req.body,
+        picture: urlsPromises,
+      });
+      return portfolio.save();
+    })
     .then(() =>
       res
         .status(201)
