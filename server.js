@@ -39,6 +39,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+//active Routes
+app.get("/ping" , (req,res)=>{
+  res.send("OK")
+ })
 
 //connect to database
 //not change the username
