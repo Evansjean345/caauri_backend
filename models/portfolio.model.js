@@ -16,13 +16,13 @@ const portfolioSchema = new mongoose.Schema({
   picture: [String],
   title: { type: String },
   type: { type: String },
-  problematicOne: { type: String } ,
-  problematicTwo: { type: String } ,
-  strategyOne:  { type: String }   ,
-  strategyTwo:  { type: String }   ,
-  clientName : { type: String }  ,
-  clientJob : { type: String }  ,
-  clientContent : { type: String }  ,
+  problematicOne: { type: String },
+  problematicTwo: { type: String },
+  strategyOne: { type: String },
+  strategyTwo: { type: String },
+  clientName: { type: String },
+  clientJob: { type: String },
+  clientContent: { type: String },
 });
 
 module.exports = mongoose.model("portfolio", portfolioSchema);

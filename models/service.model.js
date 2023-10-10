@@ -4,7 +4,7 @@ const serviceSchema = new mongoose.Schema({
   title: { type: String },
   subtitle: { type: String },
   web: {
-    pp: { type: String },
+    pp: String ,
     p1: { type: String },
     p2: { type: String },
     p3: { type: String },

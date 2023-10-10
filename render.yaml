@@ -1,4 +1,4 @@
-name: fimat-group-api
+name: caauri-consulting-api
 type: web
 buildCommand: npm install
 startCommand: npm start
