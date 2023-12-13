@@ -15,6 +15,15 @@ const ClientRoutes = require("./routes/client.routes");
 const AllBlogRoutes = require("./routes/allBlog.routes");
 const WorksRoutes = require("./routes/works.routes");
 const CareerRoutes = require("./routes/career.routes");
+//routes ABSEC
+const HomeRoutesAbsec = require('./routes/routes.absec/home.routes')
+const AboutRoutesAbsec = require('./routes/routes.absec/about.routes')
+const FaqRoutesAbsec = require('./routes/routes.absec/faq.routes')
+const CoursesDetailsAbsec = require('./routes/routes.absec/courses_details.routes')
+const CoursesAbsec = require('./routes/routes.absec/courses.routes')
+const EventRecentAbsec = require('./routes/routes.absec/event_recent.routes')
+const EventFuturAbsec = require('./routes/routes.absec/futut_event.routes')
+const RegisterAbsec = require('./routes/routes.absec/register.routes')
 
 app.get("/", (req, res) => res.send("hello word"));
 
@@ -55,6 +64,7 @@ mongoose
   .then((res) => console.log(`database connecting ${res}`))
   .catch((err) => console.log(`connection failed ${err.message}`));
 
+//CAAURI ROUTES  
 app.use(HomeRoutes);
 app.use(CaauriRoutes);
 app.use(ServiceRoutes);
@@ -64,3 +74,12 @@ app.use(ClientRoutes);
 app.use(AllBlogRoutes);
 app.use(WorksRoutes);
 app.use(CareerRoutes);
+//ABSEC ROUTES
+app.use(HomeRoutesAbsec)
+app.use(AboutRoutesAbsec)
+app.use(FaqRoutesAbsec)
+app.use(CoursesDetailsAbsec)
+app.use(CoursesAbsec)
+app.use(EventRecentAbsec)
+app.use(EventFuturAbsec)
+app.use(RegisterAbsec)
